@@ -1,0 +1,25 @@
+OASISFormat: 0.4
+Name:        posix-time
+Version:     0.3.0
+Synopsis:    POSIX time values
+Authors:     Markus W. Weissmann <markus.weissmann@in.tum.de>
+Maintainers: Markus W. Weissmann <markus.weissmann@in.tum.de>
+Homepage:    https://github.com/mwweissmann/ocaml-posix-realtime/
+License:     MIT
+Plugins:     META (0.4)
+
+Library "posix-time"
+  Path:                 src/
+  BuildTools:           ocamlbuild
+  Modules:              Posix_time
+
+Document "api"
+  Title:                API reference for POSIX time
+  Type:                 ocamlbuild (0.4)
+  Install:              false
+  BuildTools:           ocamlbuild, ocamldoc
+  Format:               HTML
+  Index:                index.html
+  XOCamlbuildPath:      src/
+  XOCamlbuildLibraries: posix-time
+
