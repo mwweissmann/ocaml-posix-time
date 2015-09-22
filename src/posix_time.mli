@@ -101,3 +101,10 @@ module Timeval : sig
       and a positive integer if [t1] is greater than [t2]. *)
 end
 
+module Itimerspec : sig
+  type t = {
+    it_interval : Timespec.t;
+    it_value : Timespec.t;
+  }
+end
+

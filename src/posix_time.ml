@@ -86,3 +86,10 @@ module Timeval = struct
     create t.tv_sec (Int64.sub t.tv_usec usec)
 end
 
+module Itimerspec = struct
+  type t = {
+    it_interval : Timespec.t;
+    it_value : Timespec.t;
+  }
+end
+
