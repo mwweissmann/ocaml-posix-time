@@ -1,6 +1,6 @@
-# POSIX time
+# OCaml POSIX time
 
-This library provides POSIX time data structures and basic functions to operate on them.
+This OCaml library provides POSIX time data structures and basic functions to operate on them.
 
 ```ocaml
 module Timespec : sig
