@@ -1,6 +1,6 @@
 OASISFormat: 0.4
 Name:        posix-time
-Version:     0.3.1
+Version:     0.4.0
 Synopsis:    POSIX time values
 Authors:     Markus W. Weissmann <markus.weissmann@in.tum.de>
 Maintainers: Markus W. Weissmann <markus.weissmann@in.tum.de>
@@ -11,6 +11,7 @@ Plugins:     META (0.4)
 Library "posix-time"
   Path:                 src/
   BuildTools:           ocamlbuild
+  Datafiles:            ocaml-posix-time.h ($prefix/include/ocaml_posix_time)
   Modules:              Posix_time
 
 Document "api"
