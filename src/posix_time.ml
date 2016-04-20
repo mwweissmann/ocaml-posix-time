@@ -86,6 +86,52 @@ module Timeval = struct
     create t.tv_sec (Int64.sub t.tv_usec usec)
 end
 
+module Tm = struct
+  type t = {
+    tm_sec : int;
+    tm_min : int;
+    tm_hour : int;
+    tm_mday : int;
+    tm_mon : int;
+    tm_year : int;
+    tm_wday : int;
+    tm_yday : int;
+    tm_isdst : int;
+  }
+
+  let create tm_sec tm_min tm_hour tm_mday tm_mon tm_year tm_wday tm_yday tm_isdst =
+    let in_range a b x = (a <= x) && (x <= b) in
+    if (in_range 0 61 tm_sec) &&
+      (in_range 0 59 tm_min) &&
+      (in_range 0 23 tm_hour) &&
+      (in_range 0 31 tm_mday) &&
+      (in_range 0 11 tm_mon) &&
+      (in_range 0 6 tm_wday) &&
+      (in_range 0 365 tm_yday) then
+      Some { tm_sec; tm_min; tm_hour; tm_mday; tm_mon; tm_year; tm_wday; tm_yday; tm_isdst }
+    else None
+
+  let compare x y =
+    begin match compare x.tm_year y.tm_year with
+    | 0 -> begin match compare x.tm_mon y.tm_mon with
+      | 0 -> begin match compare x.tm_mday y.tm_mday with
+        | 0 -> begin match compare x.tm_hour y.tm_hour with
+          | 0 -> begin match compare x.tm_min y.tm_min with
+            | 0 -> compare x.tm_sec y.tm_sec
+            | d -> d
+            end
+          | d -> d
+          end
+        | d -> d
+        end
+      | d -> d
+      end
+    | d -> d
+    end
+end
+
+
+
 module Itimerspec = struct
   type t = {
     it_interval : Timespec.t;
