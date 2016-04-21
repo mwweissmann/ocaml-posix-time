@@ -30,12 +30,13 @@ THE SOFTWARE.
 static inline struct timespec timespec_val(value v);
 static inline struct timeval timeval_val(value v);
 static inline struct tm tm_val(value v);
-static inline struct itimerspec itimerspec_val(value v);
 static inline value val_timespec(struct timespec t);
 static inline value val_timeval(struct timeval t);
 static inline value val_tm(struct tm t);
+#ifndef __APPLE__
+static inline struct itimerspec itimerspec_val(value v);
 static inline value val_itimerspec(struct itimerspec itimer);
-
+#endif
 
 static inline struct timespec timespec_val(value v) {
   return (struct timespec){
@@ -93,6 +94,7 @@ static inline value val_tm(struct tm t) {
   return tuple;
 }
 
+#ifndef __APPLE__
 static inline struct itimerspec itimerspec_val(value v) {
   return (struct itimerspec) {
     .it_interval = timespec_val(Field(v, 0)),
@@ -106,6 +108,7 @@ static inline value val_itimerspec(struct itimerspec itimer) {
   Store_field(tuple, 1, val_timespec(itimer.it_value));
   return tuple;
 }
+#endif
 
 #endif
 
