@@ -45,11 +45,13 @@ static inline struct timespec timespec_val(value v) {
   };
 }
 
-static inline value val_timespec(struct timespec t) {
-  value tuple = caml_alloc(2, 0);
+CAMLprim static inline value val_timespec(struct timespec t) {
+  CAMLparam0();
+  CAMLlocal1(tuple);
+  tuple = caml_alloc(2, 0);
   Store_field(tuple, 0, caml_copy_int64(t.tv_sec));
   Store_field(tuple, 1, caml_copy_int64(t.tv_nsec));
-  return tuple;
+  CAMLreturn(tuple);
 }
 
 static inline struct timeval timeval_val(value v) {
@@ -59,11 +61,13 @@ static inline struct timeval timeval_val(value v) {
   };
 }
 
-static inline value val_timeval(struct timeval t) {
-  value tuple = caml_alloc(2, 0);
+CAMLprim static inline value val_timeval(struct timeval t) {
+  CAMLparam0();
+  CAMLlocal1(tuple);
+  tuple = caml_alloc(2, 0);
   Store_field(tuple, 0, caml_copy_int64(t.tv_sec));
   Store_field(tuple, 1, caml_copy_int64(t.tv_usec));
-  return tuple;
+  CAMLreturn(tuple);
 }
 
 static inline struct tm tm_val(value v) {
@@ -80,8 +84,10 @@ static inline struct tm tm_val(value v) {
   };
 }
 
-static inline value val_tm(struct tm t) {
-  value tuple = caml_alloc(9, 0);
+CAMLprim static inline value val_tm(struct tm t) {
+  CAMLparam0();
+  CAMLlocal1(tuple);
+  tuple = caml_alloc(9, 0);
   Store_field(tuple, 0, Val_int(t.tm_sec));
   Store_field(tuple, 1, Val_int(t.tm_min));
   Store_field(tuple, 2, Val_int(t.tm_hour));
@@ -91,7 +97,7 @@ static inline value val_tm(struct tm t) {
   Store_field(tuple, 6, Val_int(t.tm_wday));
   Store_field(tuple, 7, Val_int(t.tm_yday));
   Store_field(tuple, 8, Val_int(t.tm_isdst));
-  return tuple;
+  CAMLreturn(tuple);
 }
 
 #ifndef __APPLE__
@@ -102,11 +108,13 @@ static inline struct itimerspec itimerspec_val(value v) {
   };
 }
 
-static inline value val_itimerspec(struct itimerspec itimer) {
-  value tuple = caml_alloc(2, 0);
+CAMLprim static inline value val_itimerspec(struct itimerspec itimer) {
+  CAMLparam0();
+  CAMLlocal1(tuple);
+  tuple = caml_alloc(2, 0);
   Store_field(tuple, 0, val_timespec(itimer.it_interval));
   Store_field(tuple, 1, val_timespec(itimer.it_value));
-  return tuple;
+  CAMLreturn(tuple);
 }
 #endif
 
