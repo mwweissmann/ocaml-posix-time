@@ -1,0 +1,81 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
+<link rel="Start" href="index.html">
+<link rel="next" href="Posix_time.Timeval.html">
+<link rel="Up" href="Posix_time.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="Posix_time" rel="Chapter" href="Posix_time.html"><title>Posix_time.Timespec</title>
+</head>
+<body>
+<div class="navbar">&nbsp;<a class="up" href="Posix_time.html" title="Posix_time">Up</a>
+&nbsp;<a class="post" href="Posix_time.Timeval.html" title="Posix_time.Timeval">Next</a>
+</div>
+<h1>Module <a href="type_Posix_time.Timespec.html">Posix_time.Timespec</a></h1>
+
+<pre><span class="keyword">module</span> Timespec: <code class="code">sig</code> <a href="Posix_time.Timespec.html">..</a> <code class="code">end</code></pre><hr width="100%">
+
+<pre><code><span id="TYPEt"><span class="keyword">type</span> <code class="type"></code>t</span> = private {</code></pre><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTt.tv_sec">tv_sec</span>&nbsp;: <code class="type">int64</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTt.tv_nsec">tv_nsec</span>&nbsp;: <code class="type">int64</code>;</code></td>
+
+</tr></table>
+}
+
+<div class="info ">
+POSIX timespec time specifier with seconds and nanoseconds. A normalized
+      value of type <code class="code">t</code> must have a value of <code class="code">tv_nsec</code> between <code class="code">0</code> and
+      <code class="code">1000000000</code> (exclusive).<br>
+</div>
+
+
+<pre><span id="VALcreate"><span class="keyword">val</span> create</span> : <code class="type">int64 -> int64 -> <a href="Posix_time.Timespec.html#TYPEt">t</a></code></pre><div class="info ">
+<code class="code">create sec nsec</code> creates a new normalized timespec with <code class="code">sec</code> seconds
+      and <code class="code">nsec</code> nanoseconds.<br>
+</div>
+
+<pre><span id="VALadd"><span class="keyword">val</span> add</span> : <code class="type"><a href="Posix_time.Timespec.html#TYPEt">t</a> -> <a href="Posix_time.Timespec.html#TYPEt">t</a> -> <a href="Posix_time.Timespec.html#TYPEt">t</a></code></pre><div class="info ">
+<code class="code">add t1 t2</code> adds the two timespec values, returning a normalized value<br>
+</div>
+
+<pre><span id="VALsub"><span class="keyword">val</span> sub</span> : <code class="type"><a href="Posix_time.Timespec.html#TYPEt">t</a> -> <a href="Posix_time.Timespec.html#TYPEt">t</a> -> <a href="Posix_time.Timespec.html#TYPEt">t</a></code></pre><div class="info ">
+<code class="code">sub t1 t2</code> subtracts <code class="code">t2</code> from <code class="code">t1</code>, creating a new normalized time
+      value.<br>
+</div>
+
+<pre><span id="VALadd_sec"><span class="keyword">val</span> add_sec</span> : <code class="type">int64 -> <a href="Posix_time.Timespec.html#TYPEt">t</a> -> <a href="Posix_time.Timespec.html#TYPEt">t</a></code></pre><div class="info ">
+<code class="code">add_sec s t</code> adds <code class="code">s</code> seconds to <code class="code">t</code>.<br>
+</div>
+
+<pre><span id="VALadd_nsec"><span class="keyword">val</span> add_nsec</span> : <code class="type">int64 -> <a href="Posix_time.Timespec.html#TYPEt">t</a> -> <a href="Posix_time.Timespec.html#TYPEt">t</a></code></pre><div class="info ">
+<code class="code">add_sec ns t</code> adds <code class="code">ns</code> nanoseconds to <code class="code">t</code>.<br>
+</div>
+
+<pre><span id="VALsub_sec"><span class="keyword">val</span> sub_sec</span> : <code class="type">int64 -> <a href="Posix_time.Timespec.html#TYPEt">t</a> -> <a href="Posix_time.Timespec.html#TYPEt">t</a></code></pre><div class="info ">
+<code class="code">sub_sec s t</code> subtracts <code class="code">s</code> seconds from <code class="code">t</code>.<br>
+</div>
+
+<pre><span id="VALsub_nsec"><span class="keyword">val</span> sub_nsec</span> : <code class="type">int64 -> <a href="Posix_time.Timespec.html#TYPEt">t</a> -> <a href="Posix_time.Timespec.html#TYPEt">t</a></code></pre><div class="info ">
+<code class="code">sub_sec ns t</code> subtracts <code class="code">ns</code> nanoseconds from <code class="code">t</code>.<br>
+</div>
+
+<pre><span id="VALcompare"><span class="keyword">val</span> compare</span> : <code class="type"><a href="Posix_time.Timespec.html#TYPEt">t</a> -> <a href="Posix_time.Timespec.html#TYPEt">t</a> -> int</code></pre><div class="info ">
+<code class="code">compare t1 t2</code> compares the two time values <code class="code">t1</code> and <code class="code">t2</code>. It returns
+      <code class="code">0</code> if <code class="code">t1</code> is equal to <code class="code">2</code>, a negative integer if <code class="code">t1</code> is less than <code class="code">t2</code>,
+      and a positive integer if <code class="code">t1</code> is greater than <code class="code">t2</code>.<br>
+</div>
+</body></html>

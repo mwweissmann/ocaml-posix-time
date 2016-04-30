@@ -1,0 +1,112 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
+<link rel="Start" href="index.html">
+<link rel="previous" href="Posix_time.Timeval.html">
+<link rel="next" href="Posix_time.Itimerspec.html">
+<link rel="Up" href="Posix_time.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="Posix_time" rel="Chapter" href="Posix_time.html"><title>Posix_time.Tm</title>
+</head>
+<body>
+<div class="navbar"><a class="pre" href="Posix_time.Timeval.html" title="Posix_time.Timeval">Previous</a>
+&nbsp;<a class="up" href="Posix_time.html" title="Posix_time">Up</a>
+&nbsp;<a class="post" href="Posix_time.Itimerspec.html" title="Posix_time.Itimerspec">Next</a>
+</div>
+<h1>Module <a href="type_Posix_time.Tm.html">Posix_time.Tm</a></h1>
+
+<pre><span class="keyword">module</span> Tm: <code class="code">sig</code> <a href="Posix_time.Tm.html">..</a> <code class="code">end</code></pre><hr width="100%">
+
+<pre><code><span id="TYPEt"><span class="keyword">type</span> <code class="type"></code>t</span> = private {</code></pre><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTt.tm_sec">tm_sec</span>&nbsp;: <code class="type">int</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTt.tm_min">tm_min</span>&nbsp;: <code class="type">int</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTt.tm_hour">tm_hour</span>&nbsp;: <code class="type">int</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTt.tm_mday">tm_mday</span>&nbsp;: <code class="type">int</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTt.tm_mon">tm_mon</span>&nbsp;: <code class="type">int</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTt.tm_year">tm_year</span>&nbsp;: <code class="type">int</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTt.tm_wday">tm_wday</span>&nbsp;: <code class="type">int</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTt.tm_yday">tm_yday</span>&nbsp;: <code class="type">int</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTt.tm_isdst">tm_isdst</span>&nbsp;: <code class="type">int</code>;</code></td>
+
+</tr></table>
+}
+
+<div class="info ">
+POSIX tm value with seconds <code class="code">0,61</code>, minutes <code class="code">0,59</code>, hours <code class="code">0,23</code>, day of
+    month <code class="code">0,31</code>, month of year <code class="code">0,11</code>, years since 1900, day of week <code class="code">0,6</code>
+    (Sunday = 0), day of year <code class="code">0,365</code> and daylight saving flag.
+    The daylight saving flag is positive if daylight saving is in effect and 0
+    if not. In case this information is not available, it has a negative value.<br>
+</div>
+
+
+<pre><span id="VALcreate"><span class="keyword">val</span> create</span> : <code class="type">int -><br>       int -><br>       int -> int -> int -> int -> int -> int -> int -> <a href="Posix_time.Tm.html#TYPEt">t</a> option</code></pre><div class="info ">
+<code class="code">create tm_sec tm_min tm_hour tm_mday rm_mon tm_year tm_wday tm_yday tm_isdst</code>
+    creates a new time value if the all arguments suffice the aforementioned
+    predicates. Otherwise <code class="code">create</code> will return <code class="code">None</code>.<br>
+</div>
+
+<pre><span id="VALcompare"><span class="keyword">val</span> compare</span> : <code class="type"><a href="Posix_time.Tm.html#TYPEt">t</a> -> <a href="Posix_time.Tm.html#TYPEt">t</a> -> int</code></pre><div class="info ">
+<code class="code">compare t1 t2</code> compares the two time values <code class="code">t1</code> and <code class="code">t2</code>. It returns
+    <code class="code">0</code> if <code class="code">t1</code> is equal to <code class="code">2</code>, a negative integer if <code class="code">t1</code> is less than <code class="code">t2</code>,
+    and a positive integer if <code class="code">t1</code> is greater than <code class="code">t2</code>.
+    <code class="code">compare</code> considers tm_year, tm_mon, tm_mday, tm_hour, tm_min, tm_sec in
+    the given order.<br>
+</div>
+</body></html>
