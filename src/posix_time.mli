@@ -57,6 +57,9 @@ module Timespec : sig
   val sub_nsec : int64 -> t -> t
   (** [sub_sec ns t] subtracts [ns] nanoseconds from [t]. *)
 
+  val to_string : t -> string
+  (** [to_string t] creates a string of the form "sec.nsec". *)
+
   val compare : t -> t -> int
   (** [compare t1 t2] compares the two time values [t1] and [t2]. It returns
       [0] if [t1] is equal to [2], a negative integer if [t1] is less than [t2],
@@ -94,6 +97,9 @@ module Timeval : sig
 
   val sub_usec : int64 -> t -> t
   (** [sub_sec us t] subtracts [us] microseconds from [t]. *)
+
+  val to_string : t -> string
+  (** [to_string t] creates a string of the form "sec.usec". *)
 
   val compare : t -> t -> int
   (** [compare t1 t2] compares the two time values [t1] and [t2]. It returns

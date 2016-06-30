@@ -4,7 +4,7 @@ module Timespec = struct
     tv_nsec : int64;
   }
 
-  let max_nsec = Int64.of_float 1e9
+  let max_nsec = 1000000000L
 
   let compare x y =
     match Int64.compare x.tv_sec y.tv_sec with
@@ -40,6 +40,9 @@ module Timespec = struct
 
   let sub_nsec nsec t =
     create t.tv_sec (Int64.sub t.tv_nsec nsec)
+
+  let to_string t =
+    Printf.sprintf "%Ld.%09Ld" t.tv_sec t.tv_nsec
 end
 
 module Timeval = struct
@@ -48,7 +51,7 @@ module Timeval = struct
     tv_usec : int64;
   }
 
-  let max_usec = Int64.of_float 1e6
+  let max_usec = 1000000L
 
   let compare x y =
     match Int64.compare x.tv_sec y.tv_sec with
@@ -84,6 +87,9 @@ module Timeval = struct
 
   let sub_usec usec t =
     create t.tv_sec (Int64.sub t.tv_usec usec)
+
+  let to_string t =
+    Printf.sprintf "%Ld.%06Ld" t.tv_sec t.tv_usec
 end
 
 module Tm = struct
