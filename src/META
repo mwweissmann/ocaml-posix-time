@@ -1,6 +1,6 @@
 # OASIS_START
-# DO NOT EDIT (digest: a57b63aaad21ccc9206376ca162e3c7b)
-version = "1.0.0"
+# DO NOT EDIT (digest: 1f98b4d972a713675807ba1b1a4110c3)
+version = "1.0.1"
 description = "POSIX time values"
 archive(byte) = "posix-time.cma"
 archive(byte, plugin) = "posix-time.cma"
